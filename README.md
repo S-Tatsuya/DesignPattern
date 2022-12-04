@@ -1,0 +1,3 @@
+# DesignPattern
+書籍などで勉強したDesignPatternのコードを記録するRepository
+
