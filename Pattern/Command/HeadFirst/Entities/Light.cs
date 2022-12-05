@@ -6,10 +6,12 @@ namespace Entities
     {
         public void on()
         {
+            Console.WriteLine("Light On");
         }
         
         public void off()
         {
+            Console.WriteLine("Light Off");
         }
     }
 }
