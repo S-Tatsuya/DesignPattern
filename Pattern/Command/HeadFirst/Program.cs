@@ -6,16 +6,17 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        SimpleRemoteControl remote = new SimpleRemoteControl();
         Light light = new Light();
         LightOnCommand lightOn = new LightOnCommand(light);
+        SimpleRemoteControl remote = new SimpleRemoteControl(lightOn);
 
         remote.setCommand(lightOn);
         remote.buttonWasPressed();
-    }
 
-    private string GetDebuggerDisplay()
-    {
-        return ToString();
+        GarageDoor garageDoor = new GarageDoor();
+        GarageDoorOpenCommand grageOpen = new GarageDoorOpenCommand(garageDoor);
+
+        remote.setCommand(grageOpen);
+        remote.buttonWasPressed();
     }
 }

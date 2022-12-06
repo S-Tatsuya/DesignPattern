@@ -5,20 +5,21 @@ namespace Entities
 {
     public class SimpleRemoteControl 
     {
-        ICommand slot;
+        ICommand _slot;
 
-        public SimpleRemoteControl()
+        public SimpleRemoteControl(ICommand command)
         {
+            _slot = command;
         }
 
         public void setCommand(ICommand command)
         {
-            slot = command;
+            _slot = command;
         }
 
         public void buttonWasPressed()
         {
-            slot.execute();
+            _slot.execute();
         }
     } 
 }
