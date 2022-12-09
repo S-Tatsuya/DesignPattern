@@ -7,7 +7,62 @@ internal class Program
     private static void Main(string[] args)
     {
         // runSimpleRemoteControl();
-        runRemoteControl();
+        // runRemoteControl();
+        // undoRemoteControl();
+        undoRemoteControlFan();
+    }
+
+    private static void undoRemoteControlFan()
+    {
+        RemoteControl remoteControl = new RemoteControl();
+
+        CeilingFan ceilingFan = new CeilingFan("リビングルーム");
+
+        CeilingFanHighCommnad ceilingFanHigh = new CeilingFanHighCommnad(ceilingFan);
+        CeilingFanMediumCommand ceilingFanMedium = new CeilingFanMediumCommand(ceilingFan);
+        CeilingFanLowCommand ceilingFanLow = new CeilingFanLowCommand(ceilingFan);
+        CeilingFanOffCommand ceilingFanOff = new CeilingFanOffCommand(ceilingFan);
+
+        remoteControl.setCommand(0, ceilingFanMedium, ceilingFanOff);
+        remoteControl.setCommand(1, ceilingFanHigh, ceilingFanOff);
+        remoteControl.setCommand(2, ceilingFanLow, ceilingFanOff);
+
+        remoteControl.onButtonWasPushed(0);
+        remoteControl.offButtonWasPushed(0);
+        Console.WriteLine(remoteControl);
+        remoteControl.undoButtonWasPushed();
+
+        remoteControl.onButtonWasPushed(1);
+        Console.WriteLine(remoteControl);
+        remoteControl.undoButtonWasPushed();
+
+        remoteControl.onButtonWasPushed(2);
+        remoteControl.onButtonWasPushed(1);
+        Console.WriteLine(remoteControl);
+        remoteControl.undoButtonWasPushed();
+
+    }
+
+    private static void undoRemoteControl()
+    {
+        RemoteControl remoteControl = new RemoteControl();
+
+        Light livingRoomLight = new Light("リビングルーム");
+        LightOnCommand livingRoomLightOn = new LightOnCommand(livingRoomLight);
+        LightOffCommand livingRoomLightOff = new LightOffCommand(livingRoomLight);
+
+        remoteControl.setCommand(0, livingRoomLightOn, livingRoomLightOff);
+
+        remoteControl.onButtonWasPushed(0);
+        remoteControl.offButtonWasPushed(0);
+        Console.WriteLine(remoteControl);
+
+        remoteControl.undoButtonWasPushed();
+        remoteControl.offButtonWasPushed(0);
+        remoteControl.onButtonWasPushed(0);
+        Console.WriteLine(remoteControl);
+
+        remoteControl.undoButtonWasPushed();
     }
 
     private static void runRemoteControl()
@@ -16,7 +71,7 @@ internal class Program
 
         Light livingRoomLight = new Light("リビングルーム");
         Light kitchenLight = new Light("キッチン");
-        CeilingFan ceilingFan = new CeilingFan();
+        CeilingFan ceilingFan = new CeilingFan("リビングルーム");
         GarageDoor garageDoor = new GarageDoor();
         Stereo stereo = new Stereo();
 

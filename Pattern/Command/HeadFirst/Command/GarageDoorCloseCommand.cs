@@ -15,5 +15,7 @@ namespace Command
         {
             _garageDoor.down();
         }
+
+        public void undo(){}
     }
 }

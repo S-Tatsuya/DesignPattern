@@ -12,5 +12,7 @@ namespace Command
         {
             Console.WriteLine("処理なし");
         }
+
+        public void undo(){}
     }
 }

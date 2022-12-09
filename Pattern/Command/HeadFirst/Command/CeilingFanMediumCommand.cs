@@ -2,12 +2,12 @@ using Entities;
 
 namespace Command
 {
-    public class CeilingFanOffCommand : ICommand
+    public class CeilingFanMediumCommand : ICommand
     {
         CeilingFan _ceilingFan;
         int _prevSpeed;
 
-        public CeilingFanOffCommand(CeilingFan ceilingFan)
+        public CeilingFanMediumCommand(CeilingFan ceilingFan)
         {
             _ceilingFan = ceilingFan;
         }
@@ -15,7 +15,7 @@ namespace Command
         public void execute()
         {
             _prevSpeed = _ceilingFan.Speed;
-            _ceilingFan.off();
+            _ceilingFan.medium();
         }
 
         public void undo()

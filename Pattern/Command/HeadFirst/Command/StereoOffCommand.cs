@@ -14,5 +14,7 @@ namespace Command
         {
             _stereo.off();
         }
+
+        public void undo(){}
     }
 }

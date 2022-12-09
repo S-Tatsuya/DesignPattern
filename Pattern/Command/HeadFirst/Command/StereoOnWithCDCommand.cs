@@ -17,6 +17,8 @@ namespace Command
             _stereo.setCd();
             _stereo.setVolume();
         }
+
+        public void undo(){}
     }
     
 }
