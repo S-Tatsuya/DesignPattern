@@ -9,7 +9,42 @@ internal class Program
         // runSimpleRemoteControl();
         // runRemoteControl();
         // undoRemoteControl();
-        undoRemoteControlFan();
+        // undoRemoteControlFan();
+        macroCommand();
+    }
+
+    private static void macroCommand()
+    {
+        var light = new Light("リビングルーム");
+        var garageDoor = new GarageDoor();
+        var stereo = new Stereo();
+        var ceilingFan = new CeilingFan("リビングルーム");
+
+        var lightOn = new LightOnCommand(light);
+        var garageDoorOpne = new GarageDoorOpenCommand(garageDoor);
+        var stereoOnWithCD = new StereoOnWithCDCommand(stereo);
+        var ceilingFanHigh = new CeilingFanHighCommnad(ceilingFan);
+        ICommand[] partyOn = { lightOn, garageDoorOpne, stereoOnWithCD, ceilingFanHigh };
+
+        var lightOff = new LightOffCommand(light);
+        var garageDoorClose = new GarageDoorCloseCommand(garageDoor);
+        var stereoOff = new StereoOffCommand(stereo);
+        var ceilingOff = new CeilingFanOffCommand(ceilingFan);
+        ICommand[] partyOff = { lightOff, garageDoorClose, stereoOff, ceilingOff };
+
+        var partyOnMacro = new MacroCommand(partyOn);
+        var partyOffMacro = new MacroCommand(partyOff);
+
+        var remoteControl = new RemoteControl();
+
+        remoteControl.setCommand(0, partyOnMacro, partyOffMacro);
+
+        Console.WriteLine("---------マクロON");
+        remoteControl.onButtonWasPushed(0);
+        Console.WriteLine("---------マクロOFF");
+        remoteControl.offButtonWasPushed(0);
+        Console.WriteLine("---------マクロUndo");
+        remoteControl.undoButtonWasPushed();
     }
 
     private static void undoRemoteControlFan()
