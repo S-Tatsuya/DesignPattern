@@ -22,14 +22,15 @@ namespace Entities
         {
             Console.WriteLine("GarageDoor STOP");
         }
+
         public void lightOn()
         {
             Console.WriteLine("GarageDoor Light ON");
         }
+
         public void lightOff()
         {
             Console.WriteLine("GarageDoor Light OFF");
         }
     }
-
 }
