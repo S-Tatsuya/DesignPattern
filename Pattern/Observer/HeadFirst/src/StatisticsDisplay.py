@@ -25,4 +25,4 @@ class StatisticsDisplay(IObserver, IDisplayElement):
         return sum(self._temp_logs) / len(self._temp_logs)
 
     def display(self):
-        print(f"平均/最高/最低気温: {self._average}/{self._max}/{self._min}%")
+        print(f"平均/最高/最低気温: {self._average}/{self._max}/{self._min}")
