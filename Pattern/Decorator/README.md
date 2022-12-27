@@ -118,6 +118,24 @@ Manager <-- Whip : return DarkRoast + Soy + Mocha2 + Mocha1 + Whip
 - **Open**:新しい機能（振る舞い）の追加をコードを追加することで実現できる。
 - **Close**:新しい機能（振る舞い）の追加時に既存のコードを変更させない。
 
+
+## デザインパターン入門
+### 関連パターン
+- 一覧
+
+|name|分類|概要|
+|---|---|---|
+|[Adapter](../Adapter/README.md)|APIのラッパー|ズレている2つのAPIをつなげる。Decoratorは内部のAPIを変えずにラッパーで機能を追加する|
+|[Strategy](../Strategy/README.md)|OpenClosed|インターフェースを使って機能を切り替える。Decoratorは機能を追加する|
+
+- 図
+``` plantuml
+@startuml
+Adapter - Decorator : APIのラッパー
+Decorator - Strategy : OpenClosed
+@enduml
+```
 ## 参考
 - [HeadFirst](https://www.amazon.co.jp/Head-Firstデザインパターン-―頭とからだで覚えるデザインパターンの基本-Eric-Freeman/dp/4873112494/ref=sr_1_1?crid=2BRLJQI7IBZDQ&keywords=head+first+デザイン&qid=1672114210&sprefix=%2Caps%2C172&sr=8-1)
+- [デザインパターン入門](https://www.amazon.co.jp/増補改訂版-Java言語で学ぶデザインパターン入門-結城-浩-ebook/dp/B00I8ATHGW/ref=sr_1_2?keywords=デザインパターン入門&qid=1672116561&sprefix=%2Caps%2C167&sr=8-2)
 

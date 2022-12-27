@@ -120,6 +120,31 @@ end note
 @enduml
 ```
 
+## デザインパターン入門
+### 関連パターン
+- 一覧
+
+|name|分類|概要|
+|---|---|---|
+|[Composite](../Composite/README.md)|使う|マクロコマンドを実現するために使う|
+|[Memento](../Memento/README.md)|使う|Command履歴（アンドゥ）のために使う|
+|[Prototype](../Prototype/README.md)|使う|コマンドの複製に使う|
+
+
+- 図
+``` plantuml
+@startuml
+Coommand -- 使う
+使う -- Composite
+使う -- Memento
+使う -- Prototype
+
+note right of 使う : Commandパターンを\nより便利にする
+@enduml
+```
+
+
 ## 参考書籍
 - [Game Programming Patterns](https://www.amazon.co.jp/Programming-Patterns-ソフトウェア開発の問題解決メニュー-impress-gearシリーズ-ebook/dp/B015R0M8W0/ref=sr_1_1?crid=2DW0VKCLAEIXQ&keywords=game+programming+patterns&qid=1670129877&sprefix=game+prog%2Caps%2C212&sr=8-1)
 - [Head First デザインパターン](https://www.amazon.co.jp/Head-Firstデザインパターン-―頭とからだで覚えるデザインパターンの基本-Eric-Freeman/dp/4873112494/ref=sr_1_7?__mk_ja_JP=カタカナ&crid=35ZU66TW13MT1&keywords=head+first&qid=1670129893&sprefix=head+firs%2Caps%2C181&sr=8-7)
+- [デザインパターン入門](https://www.amazon.co.jp/増補改訂版-Java言語で学ぶデザインパターン入門-結城-浩-ebook/dp/B00I8ATHGW/ref=sr_1_2?keywords=デザインパターン入門&qid=1672116561&sprefix=%2Caps%2C167&sr=8-2)

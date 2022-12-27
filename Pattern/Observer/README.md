@@ -106,6 +106,7 @@ ConcreteSubject <- ConcreteObserver : subject
 
 ## Head-First
 
+
 ``` plantuml
 @startuml
 class WeatherData {
@@ -143,7 +144,27 @@ DisplayElement <|-- CurrentConditionsDisplay
         - `Subject`のインターフェースはあくまで、3つのメソッドの実装を強制するための手段である。
 
 
+
+## デザインパターン入門
+### 関連パターン
+- 一覧
+
+|name|分類|概要|
+|---|---|---|
+|Mediator|利用される|MediatorはObserverの機能拡張版。|
+
+- 図
+``` plantuml
+@startuml
+Observer <- Mediator : 利用する
+class Observer {}
+
+note top of Observer : 【目的】\n状態変化を通知して同期をとる
+note top of Mediator : 【目的】\nColleague役の調停
+@enduml
+```
 ## 参考図書
+
 - [Head First デザインパターン](https://www.amazon.co.jp/Head-Firstデザインパターン-―頭とからだで覚えるデザインパターンの基本-Eric-Freeman/dp/4873112494/ref=sr_1_1?__mk_ja_JP=カタカナ&crid=30CRHBJ4W941Q&keywords=head+first+デザイン&qid=1671757160&sprefix=head+first+デザイン%2Caps%2C169&sr=8-1)
 
 - [Game Programming Patterns](https://www.amazon.co.jp/gp/product/B015R0M8W0/ref=ppx_yo_dt_b_d_asin_title_o07?ie=UTF8&psc=1)
