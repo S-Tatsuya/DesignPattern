@@ -5,8 +5,10 @@ Decoratorパターンはオブジェクトに付加的な責務を動的に付�
 ```
 - ラッパーを使って、対象をデコレーションする。
 - 機能の追加を既存のコードを変更せずに行い、動的に切り替えることもできる。
+- 通常Factoryパターン、Builderパターンなどと併用する。
 
 ## 使い所
+動的に機能の追加、変更を行いたい場合などに使用できる。
 
 ## 実装方法
 ``` plantuml
@@ -115,4 +117,7 @@ Manager <-- Whip : return DarkRoast + Soy + Mocha2 + Mocha1 + Whip
     - すべてのコードに適用しても複雑性が**無駄に**増してしまう。
 - **Open**:新しい機能（振る舞い）の追加をコードを追加することで実現できる。
 - **Close**:新しい機能（振る舞い）の追加時に既存のコードを変更させない。
+
+## 参考
+- [HeadFirst](https://www.amazon.co.jp/Head-Firstデザインパターン-―頭とからだで覚えるデザインパターンの基本-Eric-Freeman/dp/4873112494/ref=sr_1_1?crid=2BRLJQI7IBZDQ&keywords=head+first+デザイン&qid=1672114210&sprefix=%2Caps%2C172&sr=8-1)
 
