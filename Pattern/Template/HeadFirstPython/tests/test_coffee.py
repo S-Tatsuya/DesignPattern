@@ -2,6 +2,14 @@ from src.Coffee import Coffee
 
 
 class TestCoffee:
+    def test_prepare_recipe(self, capfd):
+        sut = Coffee()
+        sut.prepare_recipe()
+
+        out, err = capfd.readouterr()
+        assert out == "お湯を沸かします\nフィルタでコーヒーをドリップします\nカップに注ぎます\n砂糖とミルクを追加します\n"
+        assert err == ""
+
     def test_coffee_boil_water(self):
         sut = Coffee()
 
