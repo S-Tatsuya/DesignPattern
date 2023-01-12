@@ -19,10 +19,10 @@ class TestTea:
         assert self.sut.boil_water() == "お湯を沸かします"
 
     def test_tee_steep_tea_bag(self):
-        assert self.sut.steep_tea_bag() == "紅茶を浸します"
+        assert self.sut.brew() == "紅茶を浸します"
 
     def test_tee_add_lemon(self):
-        assert self.sut.add_lemon() == "レモンを追加します"
+        assert self.sut.add_condiments() == "レモンを追加します"
 
     def test_tee_pour_in_cup(self):
         assert self.sut.pour_in_cup() == "カップに注ぎます"

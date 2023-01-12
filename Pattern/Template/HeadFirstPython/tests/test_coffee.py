@@ -19,10 +19,10 @@ class TestCoffee:
         assert self.sut.boil_water() == "お湯を沸かします"
 
     def test_coffee_brew_coffee_grinds(self):
-        assert self.sut.brew_coffee_grinds() == "フィルタでコーヒーをドリップします"
+        assert self.sut.brew() == "フィルタでコーヒーをドリップします"
 
     def test_coffee_pour_in_cup(self):
         assert self.sut.pour_in_cup() == "カップに注ぎます"
 
     def test_coffee_add_sugar_and_milk(self):
-        assert self.sut.add_sugar_and_milk() == "砂糖とミルクを追加します"
+        assert self.sut.add_condiments() == "砂糖とミルクを追加します"
