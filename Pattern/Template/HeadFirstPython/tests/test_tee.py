@@ -12,7 +12,7 @@ class TestTea:
         self.sut.prepare_recipe()
 
         out, err = capfd.readouterr()
-        assert out == "お湯を沸かします\n紅茶を浸します\nレモンを追加します\nカップに注ぎます\n"
+        assert out == "お湯を沸かします\n紅茶を浸します\nカップに注ぎます\nレモンを追加します\n"
         assert err == ""
 
     def test_tee_boil_water(self):

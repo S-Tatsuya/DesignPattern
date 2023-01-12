@@ -2,8 +2,8 @@ class Tea:
     def prepare_recipe(self):
         print(self.boil_water())
         print(self.steep_tea_bag())
-        print(self.add_lemon())
         print(self.pour_in_cup())
+        print(self.add_lemon())
 
     def boil_water(self):
         return "お湯を沸かします"
