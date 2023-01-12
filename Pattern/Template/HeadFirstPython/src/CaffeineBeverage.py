@@ -1,4 +1,5 @@
 from abc import ABCMeta, abstractmethod
+from typing import final
 
 
 class CaffeineBeverage(metaclass=ABCMeta):
@@ -8,6 +9,7 @@ class CaffeineBeverage(metaclass=ABCMeta):
         print(self.pour_in_cup())
         print(self.add_condiments())
 
+    @final
     def boil_water(self):
         return "お湯を沸かします"
 
@@ -15,6 +17,7 @@ class CaffeineBeverage(metaclass=ABCMeta):
     def brew(self):
         pass
 
+    @final
     def pour_in_cup(self):
         return "カップに注ぎます"
 
