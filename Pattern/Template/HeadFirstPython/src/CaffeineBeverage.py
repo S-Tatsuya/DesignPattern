@@ -28,3 +28,15 @@ class CaffeineBeverage(metaclass=ABCMeta):
 
     def customer_wants_condiments(self):
         return True
+
+    def _is_condiments(self):
+        self._question()
+        answer = input()
+
+        if answer == "y":
+            return True
+
+        return False
+
+    def _question(self):
+        print("")

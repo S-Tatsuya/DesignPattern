@@ -11,11 +11,5 @@ class Coffee(CaffeineBeverage):
     def customer_wants_condiments(self):
         return self._is_condiments()
 
-    def _is_condiments(self):
+    def _question(self):
         print("コーヒーに砂糖とミルクをいれますか？(y/n)")
-        answer = input()
-
-        if answer == "y":
-            return True
-
-        return False

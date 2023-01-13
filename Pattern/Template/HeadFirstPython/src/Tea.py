@@ -11,11 +11,5 @@ class Tea(CaffeineBeverage):
     def customer_wants_condiments(self):
         return self._is_condiments()
 
-    def _is_condiments(self):
+    def _question(self):
         print("紅茶にレモンをいれますか?(y/n)")
-        answer = input()
-
-        if answer == "y":
-            return True
-
-        return False
