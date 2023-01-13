@@ -7,8 +7,15 @@
  抽象クラスが処理の全体像を定義して、サブクラスはその**特化**(サブクラスごとの差異)のみを実装する。  
 -> **何に特化**しているのかをサブクラスを見るだけで把握できる。
 
+- Hook(フック)メソッド: デフォルトの処理があるが、必要であればサブクラスで実装できるメソッド
+    - 抽象メソッドのように処理の実装を強制しない
+    - final メソッドのように処理の実装を禁止しない
+
+- Hookを使うことで抽象クラスに対する判断を行う能力をサブクラスに与えることができる
+
 ## 使い所
 共通のアルゴリズムを持ち、詳細のみ異なるクラスを定義することができる。
+
 
 ## 0.1 実装方法
 ``` plantuml
@@ -91,6 +98,63 @@ class Coffee {
 class Tea {
     berw()
     add_condiments()
+}
+
+CaffeineBeverage <|-- Coffee
+CaffeineBeverage <|-- Tea
+@enduml
+```
+
+3. Hook(下図の青字)を使ってCoffeeのサブクラスだけ処理を変更
+``` plantuml
+@startuml
+abstract CaffeineBeverage {
+    prepare_recipe()
+    boil_water()
+    {abstract} berw()
+    pour_in_cup()
+    {abstract} add_condiments()
+    <color:blue>customer_wants_condiments()</color>
+}
+
+class Coffee {
+    berw()
+    addCondiments()
+    <color:blue>customer_wants_condiments()</color>
+}
+
+class Tea {
+    berw()
+    add_condiments()
+}
+
+CaffeineBeverage <|-- Coffee
+CaffeineBeverage <|-- Tea
+@enduml
+```
+
+4. Teaにも`3.`と同様の対応を行う
+``` plantuml
+@startuml
+abstract CaffeineBeverage {
+    prepare_recipe()
+    boil_water()
+    {abstract} berw()
+    pour_in_cup()
+    {abstract} add_condiments()
+    <color:blue>customer_wants_condiments()</color>
+}
+
+class Coffee {
+    berw()
+    addCondiments()
+    <color:blue>customer_wants_condiments()</color>
+}
+
+class Tea {
+    berw()
+    add_condiments()
+    <color:blue>customer_wants_condiments()</color>
 }
 
 CaffeineBeverage <|-- Coffee
