@@ -161,3 +161,20 @@ CaffeineBeverage <|-- Coffee
 CaffeineBeverage <|-- Tea
 @enduml
 ```
+
+## デザインパターン入門 
+### 関連パターン
+- 一覧
+|name|分類|概要|
+|---|---|---|
+|Factory Method|応用|Template Methodの応用パターン|
+|Stragtegy|類似|Template Methodは**継承**でアルゴリズムの**一部**を切り替える。  Strategyは**委譲**でアルゴリズムの**全て**を切り替える|
+
+- 図
+``` plantuml
+@startuml
+class TemplateMethod {}
+TemplateMethod <-- FactoryMethod: 応用
+TemplateMethod - Stragtegy: 類似
+@enduml
+```
