@@ -1,3 +1,4 @@
+import io
 import pytest
 
 from src.Tea import Tea
@@ -8,11 +9,22 @@ class TestTea:
     def setup(self):
         self.sut = Tea()
 
-    def test_prepare_recipe(self, capfd):
+    def test_prepare_recipe_add_condiments(self, capfd, monkeypatch):
+        monkeypatch.setattr("sys.stdin", io.StringIO("y\n"))
         self.sut.prepare_recipe()
 
         out, err = capfd.readouterr()
-        assert out == "お湯を沸かします\n紅茶を浸します\nカップに注ぎます\nレモンを追加します\n"
+        assert out == (
+            "お湯を沸かします\n" "紅茶を浸します\n" "カップに注ぎます\n" "紅茶にレモンをいれますか?(y/n)\n" "レモンを追加します\n"
+        )
+        assert err == ""
+
+    def test_prepare_recipe_not_condiments(self, capfd, monkeypatch):
+        monkeypatch.setattr("sys.stdin", io.StringIO("n\n"))
+        self.sut.prepare_recipe()
+
+        out, err = capfd.readouterr()
+        assert out == ("お湯を沸かします\n" "紅茶を浸します\n" "カップに注ぎます\n" "紅茶にレモンをいれますか?(y/n)\n")
         assert err == ""
 
     def test_tee_boil_water(self):

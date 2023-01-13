@@ -7,3 +7,15 @@ class Tea(CaffeineBeverage):
 
     def add_condiments(self):
         return "レモンを追加します"
+
+    def customer_wants_condiments(self):
+        return self._is_condiments()
+
+    def _is_condiments(self):
+        print("紅茶にレモンをいれますか?(y/n)")
+        answer = input()
+
+        if answer == "y":
+            return True
+
+        return False

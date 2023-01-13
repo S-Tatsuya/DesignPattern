@@ -24,7 +24,7 @@ class TestCoffee:
 
         assert err == ""
 
-    def test_prepare_recipe_not_condiments_add_condiments(self, capfd, monkeypatch):
+    def test_prepare_recipe_not_condiments(self, capfd, monkeypatch):
         monkeypatch.setattr("sys.stdin", io.StringIO("n\n"))
         self.sut.prepare_recipe()
 
