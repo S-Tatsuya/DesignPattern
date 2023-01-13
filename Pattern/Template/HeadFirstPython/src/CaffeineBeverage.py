@@ -7,7 +7,8 @@ class CaffeineBeverage(metaclass=ABCMeta):
         print(self.boil_water())
         print(self.brew())
         print(self.pour_in_cup())
-        print(self.add_condiments())
+        if self.customer_wants_condiments():
+            print(self.add_condiments())
 
     @final
     def boil_water(self):
@@ -24,3 +25,6 @@ class CaffeineBeverage(metaclass=ABCMeta):
     @abstractmethod
     def add_condiments(self):
         pass
+
+    def customer_wants_condiments(self):
+        return True
