@@ -1,3 +1,5 @@
+import pytest
+
 from src.Singleton import Singleton
 
 
@@ -8,3 +10,9 @@ class TestSingleton:
         assert sut is not None
         assert result is not None
         assert sut is result
+
+    def test_singleton_constructor(self):
+        with pytest.raises(NotImplementedError) as e:
+            _ = Singleton()
+
+        assert str(e.value) == ""
