@@ -165,6 +165,7 @@ CaffeineBeverage <|-- Tea
 ## デザインパターン入門 
 ### 関連パターン
 - 一覧
+
 |name|分類|概要|
 |---|---|---|
 |Factory Method|応用|Template Methodの応用パターン|
