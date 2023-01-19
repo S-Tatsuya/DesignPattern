@@ -6,7 +6,7 @@ from src.ChocolateBoiler import ChocolateBoiler
 class TestChocolateBoiler:
     @pytest.fixture(autouse=True)
     def setup_chocolateBoiler(self):
-        self.sut = ChocolateBoiler.get_instance()
+        self.sut = ChocolateBoiler()
         self.sut.clean()
 
     def test_is_empty(self):
@@ -52,5 +52,5 @@ class TestChocolateBoiler:
         assert self.sut.is_boiled is True
 
     def test_singleton(self):
-        result = ChocolateBoiler.get_instance()
+        result = ChocolateBoiler()
         assert self.sut is result
