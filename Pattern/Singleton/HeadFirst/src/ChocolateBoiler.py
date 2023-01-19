@@ -1,7 +1,15 @@
 class ChocolateBoiler:
+    _instance = None
+
     def __init__(self):
         self._is_empty = True
         self._is_boiled = False
+
+    @classmethod
+    def get_instance(cls):
+        if cls._instance is None:
+            cls._instance = ChocolateBoiler()
+        return cls._instance
 
     def fill(self):
         if self._is_empty:
@@ -23,6 +31,10 @@ class ChocolateBoiler:
             return
 
         self._is_empty = True
+
+    def clean(self):
+        self._is_empty = True
+        self._is_boiled = False
 
     @property
     def is_empty(self):
