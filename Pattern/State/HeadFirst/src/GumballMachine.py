@@ -1,61 +1,30 @@
-class GumballMachine:
-    SOLD_OUT = 0
-    NO_QUARTER = 1
-    HAS_QUATER = 2
-    SOLD = 3
+from src.state import IState
+from src.no_quarter_state import NoQuarterState
+from src.has_quarter_state import HasQuarterState
+from src.sold_out_state import SoldOutState
+from src.sold_state import SoldState
 
+
+class GumballMachine:
     def __init__(self, count):
+        self.no_quarter_state = NoQuarterState(self)
+        self.has_quarter_state = HasQuarterState(self)
+        self.sold_out_state = SoldOutState(self)
+        self.sold_state = SoldState(self)
         self.count = count
         if count > 0:
-            self.state = self.NO_QUARTER
+            self.state: IState = self.no_quarter_state
         else:
-            self.state = self.SOLD_OUT
+            self.state: IState = self.sold_out_state
 
     def insert_quarter(self):
-        if self.state == self.HAS_QUATER:
-            return "もう一度25セントを投入することはできません。"
-        elif self.state == self.NO_QUARTER:
-            self.state = self.HAS_QUATER
-            return "25セントを投入しました。"
-        elif self.state == self.SOLD_OUT:
-            return "25セントを投入することはできません。このマシンは売り切れです。"
-        elif self.state == self.SOLD:
-            return "お待ちください。すでにガムボールを出しています。"
+        return self.state.insert_quarter()
 
     def eject_quarter(self):
-        if self.state == self.HAS_QUATER:
-            self.state = self.NO_QUARTER
-            return "25セントを返却しました。"
-        elif self.state == self.NO_QUARTER:
-            return "25セントを投入していません。"
-        elif self.state == self.SOLD_OUT:
-            return "返金できません。まだ25セントを投入していません。"
-        elif self.state == self.SOLD:
-            return "申し訳ありません。すでにクランクを回しています。"
+        return self.state.eject_quarter()
 
     def turn_crank(self):
-        if self.state == self.HAS_QUATER:
-            self.state = self.SOLD
-            return "クランクを回しました。"
-        elif self.state == self.NO_QUARTER:
-            return "クランクを回しましたが、25セントを投入していません。"
-        elif self.state == self.SOLD_OUT:
-            return "クランクを回しましたが、ガムボールがありません。"
-        elif self.state == self.SOLD:
-            return "2回回してもガムボールをもう1つ手に入れることはできません。"
+        return self.state.turn_crank()
 
     def dispense(self):
-        if self.state == self.HAS_QUATER:
-            return "販売するガムボールはありません。"
-        elif self.state == self.NO_QUARTER:
-            return "まず支払いをする必要があります。"
-        elif self.state == self.SOLD_OUT:
-            return "販売するガムボールはありません。"
-        elif self.state == self.SOLD:
-            self.count -= 1
-            if self.count == 0:
-                self.state = self.SOLD_OUT
-            else:
-                self.state = self.NO_QUARTER
-
-            return "ガムボールがスロットから転がりでてきます。"
+        return self.state.dispense()
