@@ -187,10 +187,10 @@ class TestWinnerState:
         gumball_machine = GumballMachine(2)
         sut = WinnerState(gumball_machine)
 
-        assert (
-            sut.dispense()
-            == "ガムボールがスロットから転がりでてきます。\nガムボールがスロットから転がりでてきます。\nおっと、ガムボールがなくなりました！"
+        assert sut.dispense() == (
+            "ガムボールがスロットから転がりでてきます。\nガムボールがスロットから転がりでてきます。\nおっと、ガムボールがなくなりました！"
         )
+
         assert gumball_machine.state == gumball_machine.sold_out_state
 
         gumball_machine = GumballMachine(3)
@@ -200,4 +200,25 @@ class TestWinnerState:
         assert gumball_machine.state == gumball_machine.no_quarter_state
 
 
-# class TestGumbalMachine:
+class TestGumbalMachine:
+    def test_gumball_machine_state(self):
+        sut = GumballMachine(3)
+
+        assert sut.insert_quarter() == "25セントを投入しました。"
+        assert sut.state == sut.has_quarter_state
+
+        assert sut.turn_crank(0) == "クランクを回しました。"
+
+        assert sut.dispense() == "ガムボールがスロットから転がりでてきます。"
+        assert sut.state == sut.no_quarter_state
+
+        assert sut.insert_quarter() == "25セントを投入しました。"
+        assert sut.state == sut.has_quarter_state
+
+        assert sut.turn_crank(2) == "クランクを回しました。"
+        assert sut.state == sut.winner_state
+
+        assert sut.dispense() == (
+            "ガムボールがスロットから転がりでてきます。\nガムボールがスロットから転がりでてきます。\nおっと、ガムボールがなくなりました！"
+        )
+        assert sut.state == sut.sold_out_state

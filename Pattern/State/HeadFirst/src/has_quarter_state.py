@@ -16,7 +16,6 @@ class HasQuarterState(IState):
     def turn_crank(self, _):
         random.seed(_)
         result = random.randint(0, 10)
-        print(result)
         if result == 0 and self.gumball_machine.count > 1:
             self.gumball_machine.state = self.gumball_machine.winner_state
         else:
