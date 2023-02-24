@@ -1,3 +1,4 @@
+import random
 from abc import ABCMeta, abstractmethod
 
 
@@ -11,7 +12,7 @@ class IState(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def turn_crank(self):
+    def turn_crank(self, seed=random.random()):
         pass
 
     @abstractmethod
