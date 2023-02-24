@@ -107,7 +107,7 @@ class TestGumbalMachine:
         sut.insert_quarter()
         sut.turn_crank()
 
-        assert sut.dispense() == "ガムボールがスロットから転がりでてきます。"
+        assert sut.dispense() == "ガムボールがスロットから転がりでてきます。\nおっと、ガムボールがなくなりました！"
         assert sut.state == sut.sold_out_state
 
         sut = GumballMachine(2)

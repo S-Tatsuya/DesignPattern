@@ -15,10 +15,11 @@ class SoldState(IState):
         return "2回回してもガムボールをもう1つ手に入れることはできません。"
 
     def dispense(self):
+        result = self.gumball_machine.release_ball()
         self.gumball_machine.count -= 1
         if self.gumball_machine.count == 0:
             self.gumball_machine.state = self.gumball_machine.sold_out_state
+            return result + "\n" "おっと、ガムボールがなくなりました！"
         else:
             self.gumball_machine.state = self.gumball_machine.no_quarter_state
-
-        return "ガムボールがスロットから転がりでてきます。"
+            return result

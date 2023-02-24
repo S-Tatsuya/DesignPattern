@@ -28,3 +28,6 @@ class GumballMachine:
 
     def dispense(self):
         return self.state.dispense()
+
+    def release_ball(self):
+        return "ガムボールがスロットから転がりでてきます。"
