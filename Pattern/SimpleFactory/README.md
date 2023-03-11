@@ -89,5 +89,11 @@ Form1ViewModelを作ることで依存性の注入をForm1からできるよう�
 これにより、実際のコードには無いProductMockクラスを
 Form1ViewModelへ注入して単体テストを実行できるようになった。
 end note
+
+note bottom of Factory
+本例ではFactoryクラスを別のクラスにしているが
+抽象クラスに各具象クラスのインスタンス化のロジックを書いても良い
+※個人的には継承の矢印と逆向きの依存関係の矢印ができるのであまり好きではない。
+end note
 @enduml
 ```
