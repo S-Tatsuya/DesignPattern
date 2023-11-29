@@ -7,7 +7,7 @@
 - `Factoryクラス` を組み合わせて一つのシステムで生成するものを切り替えたい場合に有効
     - `Simple Factoryパターン` だけでは生成するインスタンスの判定ロジックが重複する場合に有効。
  
-<img src="http://www.plantuml.com/plantuml/proxy?src=http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/S-Tatsuya/DesignPattern/main/Pattern/AbstractFactory/README.md&fmt=svg" />
+<img src="http://www.plantuml.com/plantuml/proxy?src=https://raw.githubusercontent.com/S-Tatsuya/DesignPattern/main/Pattern/AbstractFactory/README.md&fmt=svg" />
 
 ## C#のデザインパターン
 ### Simple Factoryのパターン
